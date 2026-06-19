@@ -69,16 +69,19 @@ void SomeFunction(int entityId)
 	FObject entity;
 	entity = ConstructObject(entityId);
 	ABaseEntity myEntity = FEntityStatics.RegisterEntity(entity);
-	FEntityStatics.SetValidationProperty(myEntity, "BaseEntity.MyCustomEntity"); // Tags this entity with a validation property that we can check later
+
+	// Tags this entity with a validation property that we can check later
+	FEntityStatics.SetValidationProperty(myEntity, "BaseEntity.MyCustomEntity");
 }
-...
+
 void SomeOtherFunction(int entityId)
 {
 	ABaseEntity myEntity = FEntityStatics.GetEntityFromIndex(entityId);
 	if (myEntity)
 	{
-		// You now have the same entity if the index matches, if you want to make sure this is the entity you are looking for, you can use validation properties
-		if (IsEntityOfType(myEntity, "BaseEntity.MyCustomEntity")
+		/* You now have the same entity if the index matches, if you want to make sure 
+		this is the entity you are looking for, you can use validation properties */
+		if (IsEntityOfType(myEntity, "BaseEntity.MyCustomEntity"))
 		{
 			// Now only execute code on entities which are tagged `BaseEntity.MyCustomEntity`
 		}
@@ -115,7 +118,10 @@ methodmap AMyGrenade < ABaseEntity
 
 void SomeFunction(AClient client)
 {
-	// Create our grenade as a `tf_projectile_pipe` then set the owner as the client's FObject with GetObject() and set the validation property
+	/* 
+	*  Create our grenade as a `tf_projectile_pipe` then set the owner as the client's FObject 
+	*  with GetObject() and set the validation property
+	*/
 	AMyGrenade grenade = view_as<AMyGrenade>(FEntityStatics.CreateEntity("tf_projectile_pipe", client.GetObject(), "Entity.MyGrenadeEntity"));
 	if (grenade)
 	{
