@@ -4,7 +4,7 @@ static SObjectMap EntityList;
 static SObjectMap ClientList;
 static ArrayList TickingEntities;
 static ArrayList UnorderedClientList;
-static StringMap PersistentProps;
+// static StringMap PersistentProps;
 static StringMap Globals;
 
 static GlobalForward OnObjectRegistered;
@@ -38,7 +38,7 @@ public void OnPluginStart()
 	TickingEntities = new ArrayList();
 	ClientList = new SObjectMap();
 	UnorderedClientList = new ArrayList();
-	PersistentProps = new StringMap();
+	// PersistentProps = new StringMap();
 	Globals = new StringMap();
 
 	OnObjectRegistered = new GlobalForward("EntManager_OnEntityRegistered", ET_Ignore, Param_Any, Param_String);
