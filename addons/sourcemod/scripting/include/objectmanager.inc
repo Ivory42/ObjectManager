@@ -1,5 +1,5 @@
 #include <ilib>
-#include <ilib_objects>
+#include <ilib/objects/shared.inc>
 #include <tf2_stocks>
 #include <sdkhooks>
 
