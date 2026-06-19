@@ -12,8 +12,8 @@ Because this framework utilizes ilib, the following objects are frequently used:
   - `FClient` - Enum struct meant to wrap clients
   - `FTimer` - Enum struct meant to act as a timer against `GetGameTime()`
   - `FVector` - Enum struct for vectors
-  - `FRotator` Enum struct for angles
-  - `FTransform` Enum struct for holding a position (vector), rotation (rotator) and velocity (vector)
+  - `FRotator` - Enum struct for angles
+  - `FTransform` - Enum struct for holding a position (vector), rotation (rotator) and velocity (vector)
 
 ### Methodmaps
 
