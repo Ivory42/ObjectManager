@@ -319,7 +319,8 @@ any EntNative_RegisterClient(Handle plugin, int args)
 
 	AClient client = new AClient(clientRef);
 
-	return RegisterClient(client);
+	RegisterClient(client);
+	return client;
 }
 
 any EntNative_GetEntity(Handle plugin, int args)
