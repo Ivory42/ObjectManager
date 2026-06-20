@@ -2,9 +2,7 @@
 
 Sourcemod framework that allows easily wrapping entities with StringMaps so that they can be accessed anywhere and given custom properties.
 
-Requires ilib and tf2attributes to compile
-
-ilib can be found here: https://github.com/Ivory42/ilib
+Requires ilib to compile: https://github.com/Ivory42/ilib
 
 ## Essentials
 Because this framework utilizes ilib, the following objects are frequently used:
