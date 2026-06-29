@@ -423,7 +423,7 @@ any EntNative_Valid(Handle plugin, int args)
 {
 	ABaseEntity entity = view_as<ABaseEntity>(GetNativeCell(1));
 
-	if (entity)
+	if (EntityInList(entity))
 	{
 		return entity.Valid();
 	}
@@ -870,4 +870,36 @@ void RemoveClient(AClient client)
 			}
 		}
 	}
+}
+
+// Checks if the given entity exists in our current entity list. Can be used to determine if a handle is garbage or not as freed entities are removed from the entity list
+bool EntityInList(ABaseEntity entity)
+{
+	if (!entity) // if the entity is null don't bother checking
+	{
+		return false;
+	}
+	
+	StringMapSnapshot snap = EntityList.Snapshot();
+	bool result = false;
+	if (snap.Length > 0)
+	{
+		char key[64];
+		ABaseEntity value = null;
+		for (int i = 0; i < snap.Length; i++)
+		{
+			snap.GetKey(i, key, sizeof key);
+			EntityList.GetValue(key, value);
+
+			// Our entity was found, exit the loop
+			if (value && entity == value)
+			{
+				result = true;
+				break;
+			}
+		}
+	}
+
+	delete snap;
+	return result;
 }

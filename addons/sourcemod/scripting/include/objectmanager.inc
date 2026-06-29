@@ -292,7 +292,7 @@ stock APersistentObject GetWorldSpawn()
 	return WorldSpawn;
 }
 
-// Casts to ABaseEntity
+// Casts to ABaseEntity - Only use this if the object is guaranteed to exist.
 stock ABaseEntity ValidObject(APersistentObject entity)
 {
 	if (!entity)
